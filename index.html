@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homem de Deus • Oficial</title>
+    <title>Homem de Deus • Versão Final</title>
     <style>
         :root {
-            --bg: #070a13;
-            --surface: rgba(17, 24, 39, 0.75);
-            --primary: #00f5d4; /* Neon Ciano */
-            --primary-glow: rgba(0, 245, 212, 0.25);
-            --accent: #2563eb; /* Azul Elétrico */
-            --text: #ffffff;
-            --text-muted: #64748b;
+            --fundo: #050811;
+            --bloco: rgba(16, 22, 42, 0.8);
+            --neon-ciano: #00f5d4;
+            --neon-glow: rgba(0, 245, 212, 0.3);
+            --azul-forte: #1e40af;
+            --texto-claro: #ffffff;
+            --texto-escuro: #64748b;
         }
 
         * {
@@ -23,11 +23,11 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
+            background-color: var(--fundo);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(0, 245, 212, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.1) 0px, transparent 50%);
-            color: var(--text);
+                radial-gradient(at 0% 0%, rgba(0, 245, 212, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(30, 64, 175, 0.15) 0px, transparent 50%);
+            color: var(--texto-claro);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -35,16 +35,16 @@
             padding: 20px;
         }
 
-        .app-card {
+        .container-principal {
             width: 100%;
             max-width: 420px;
-            background: var(--surface);
+            background: var(--bloco);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 2px solid rgba(0, 245, 212, 0.2);
+            border: 2px solid rgba(0, 245, 212, 0.25);
             border-radius: 24px;
             padding: 32px 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
             text-align: center;
         }
 
@@ -59,67 +59,67 @@
         }
 
         header p {
-            color: var(--primary);
+            color: var(--neon-ciano);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 800;
             margin-top: 4px;
             margin-bottom: 24px;
-            text-shadow: 0 0 10px var(--primary-glow);
+            text-shadow: 0 0 10px var(--neon-glow);
         }
 
-        .badge-date {
+        .data-hoje {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 6px 16px;
             border-radius: 99px;
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--texto-escuro);
             font-weight: 700;
             display: inline-block;
             margin-bottom: 28px;
         }
 
-        .content-area {
-            background: rgba(10, 14, 23, 0.6);
+        .caixa-conteudo {
+            background: rgba(7, 10, 19, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 28px;
             text-align: left;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.9);
         }
 
-        .verse-title {
+        .titulo-versiculo {
             font-size: 20px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 12px;
         }
 
-        .label {
+        .subtitulo-etiqueta {
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--primary);
+            color: var(--neon-ciano);
             font-weight: 800;
             margin-bottom: 8px;
             margin-top: 24px;
         }
 
-        .label:first-of-type { margin-top: 0; }
+        .subtitulo-etiqueta:first-of-type { margin-top: 0; }
 
-        .text-main {
+        .texto-da-palavra {
             font-size: 15px;
             line-height: 1.6;
             color: #e2e8f0;
             font-style: italic;
         }
 
-        .challenge-box {
-            background: rgba(37, 99, 235, 0.1);
-            border-left: 3px solid var(--accent);
+        .caixa-desafio {
+            background: rgba(30, 64, 175, 0.2);
+            border-left: 3px solid var(--azul-forte);
             padding: 14px;
             border-radius: 0 12px 12px 0;
             font-size: 14px;
@@ -128,10 +128,10 @@
             font-weight: 500;
         }
 
-        .btn-action {
+        .botao-mudar {
             width: 100%;
             background: linear-gradient(135deg, #00f5d4 0%, #00b49d 100%);
-            color: #050508;
+            color: #050811;
             border: none;
             padding: 18px;
             border-radius: 14px;
@@ -144,97 +144,108 @@
             box-shadow: 0 8px 24px rgba(0, 245, 212, 0.25);
         }
 
-        .btn-action:hover {
+        .botao-mudar:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(0, 245, 212, 0.4);
-        }
-
-        .loading-text {
-            font-size: 11px;
-            color: var(--primary);
-            margin-top: -15px;
-            margin-bottom: 15px;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-<div class="app-card">
+<div class="container-principal">
     <header>
         <h1>Homem de Deus</h1>
-        <p>SABEDORIA DIÁRIA</p>
+        <p>100% Em Português</p>
     </header>
 
-    <div class="badge-date" id="current-date">CARREGANDO...</div>
+    <div class="data-hoje" id="txt-data">CARREGANDO DATA...</div>
 
-    <div class="content-area">
-        <div class="label"><b>📖 TEXTO BÍBLICO</b></div>
-        <div class="verse-title" id="verse-ref">Carregando...</div>
-        <div class="text-main" id="verse-text">Buscando Palavra viva...</div>
+    <div class="caixa-conteudo">
+        <div class="subtitulo-etiqueta">📖 LEITURA BÍBLICA</div>
+        <div class="titulo-versiculo" id="txt-referencia">Carregando...</div>
+        <div class="texto-da-palavra" id="txt-versiculo">Carregando...</div>
 
-        <div class="label"><b>⚡ DESAFIO PRÁTICO MASCULINO</b></div>
-        <div class="challenge-box" id="challenge-text">Carregando...</div>
+        <div class="subtitulo-etiqueta">⚡ DESAFIO PRÁTICO</div>
+        <div class="caixa-desafio" id="txt-desafio">Carregando...</div>
     </div>
 
-    <div class="loading-text" id="status-api">Sistema 100% Local</div>
-
-    <button class="btn-action" onclick="gerarMensagem()">
-        Próxima Mensagem
+    <button class="botao-mudar" onclick="sortearNovaMensagem()">
+        Mudar Mensagem
     </button>
 </div>
 
 <script>
-    // Banco de dados expandido em Português (Almeida Revista e Atualizada)
-    const versiculosPT = [
-        { ref: "1 Timóteo 6:11", texto: "Mas você, homem de Deus, fuja de tudo isso e busque a justiça, a piedade, a fé, o amor, a constância e a mansidão." },
-        { ref: "1 Coríntios 16:13", texto: "Estejam alertas, permaneçam firmes na fé, ajam como homens e sejam fortes." },
-        { ref: "Provérbios 4:23", texto: "Acima de tudo o que deve ser guardado, guarde o seu coração, pois dele procedem as fontes da vida." },
-        { ref: "Josué 1:9", texto: "Não fui eu que ordenei? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar." },
-        { ref: "Provérbios 16:32", texto: "Melhor é o homem paciente do que o guerreiro, mais vale controlar o seu próprio espírito do que conquistar uma cidade inteira." },
-        { ref: "Salmo 1:1-2", texto: "Bem-aventurado o homem que não anda no conselho dos ímpios... Antes, o seu prazer está na lei do Senhor." },
-        { ref: "Provérbios 27:17", texto: "Como o ferro afia o ferro, assim o homem afia o seu companheiro." },
-        { ref: "Tiago 1:19", texto: "Sejam todos prontos para ouvir, tardios para falar e tardios para se irar." },
-        { ref: "Gálatas 6:7", texto: "Não se enganem: de Deus não se zomba. Pois o que o homem semear, isso também colherá." },
-        { ref: "Efésios 5:25", texto: "Maridos, amem suas mulheres, assim como Cristo amou a igreja e entregou-se por ela." },
-        { ref: "2 Timóteo 1:7", texto: "Pois Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio." },
-        { ref: "Provérbios 10:9", texto: "Quem caminha em integridade caminha seguro, mas quem segue caminhos tortuosos será descoberto." },
-        { ref: "Salmo 119:9", texto: "Como pode o jovem manter pura a sua conduta? Vivendo de acordo com a tua palavra." },
-        { ref: "Provérbios 3:5", texto: "Confie no Senhor de todo o seu coração e não se apóie em seu próprio entendimento." },
-        { ref: "Lucas 9:23", texto: "Se alguém quer vir após mim, a si mesmo se negue, dia a dia tome a sua cruz e siga-me." }
+    // LISTA DE TEXTOS TOTALMENTE TRAVADA EM PORTUGUÊS (NÃO ENTRA LINK EXTERNO)
+    const listaDeTextos = [
+        {
+            livro: "1 Timóteo 6:11",
+            mensagem: "Mas você, homem de Deus, fuja de tudo isso e busque a justiça, a piedade, a fé, o amor, a constância e a mansidão.",
+            tarefa: "Identifique uma área ou conversa tóxica hoje e afaste-se dela imediatamente."
+        },
+        {
+            livro: "1 Coríntios 16:13",
+            mensagem: "Estejam alertas, permaneçam firmes na fé, ajam como homens e sejam fortes.",
+            tarefa: "Enfrente uma tarefa difícil ou uma conversa chata que você estava adiando hoje mesmo."
+        },
+        {
+            livro: "Provérbios 4:23",
+            mensagem: "Acima de tudo o que deve ser guardado, guarde o seu coração, pois dele procedem as fontes da vida.",
+            tarefa: "Filtre tudo o que você assistir e ouvir hoje. Proteja sua mente de conteúdos ruins."
+        },
+        {
+            livro: "Josué 1:9",
+            mensagem: "Não fui eu que ordenei? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar.",
+            tarefa: "Não dê nenhuma desculpa ou demonstre preguiça diante das suas obrigações hoje."
+        },
+        {
+            livro: "Provérbios 16:32",
+            mensagem: "Melhor é o homem paciente do que o guerreiro, mais vale controlar o seu próprio espírito do que conquistar uma cidade inteira.",
+            tarefa: "Quando sentir raiva ou irritação hoje, respire fundo por 5 segundos e responda com calma."
+        },
+        {
+            livro: "Salmo 1:1-2",
+            mensagem: "Bem-aventurado o homem que não anda no conselho dos ímpios... Antes, o seu prazer está na lei do Senhor.",
+            tarefa: "Substitua 20 minutos de redes sociais por leitura ou reflexão em silêncio hoje."
+        },
+        {
+            livro: "Provérbios 27:17",
+            mensagem: "Como o ferro afia o ferro, assim o homem afia o seu companheiro.",
+            tarefa: "Mande uma mensagem de apoio ou ligue para um amigo que está enfrentando lutas diárias."
+        },
+        {
+            livro: "Tiago 1:19",
+            mensagem: "Meus amados irmãos, tenham isto em mente: Sejam todos prontos para ouvir, tardio para falar e tardio para se irar.",
+            tarefa: "Escute com atenção as pessoas hoje sem interrompê-las para dar sua opinião rápida."
+        },
+        {
+            livro: "Gálatas 6:7",
+            mensagem: "Não se enganem: de Deus não se zomba. Pois o que o homem semear, isso também colherá.",
+            tarefa: "Faça uma boa ação por alguém em segredo hoje, sem contar para absolutamente ninguém."
+        },
+        {
+            livro: "Efésios 5:25",
+            mensagem: "Maridos, amem suas mulheres, assim como Cristo amou a igreja e entregou-se por ela.",
+            tarefa: "Trate as pessoas da sua casa com honra extra, ajudando em alguma tarefa pesada."
+        }
     ];
 
-    const desafios = [
-        "Identifique uma área ou conversa tóxica hoje e afaste-se dela imediatamente.",
-        "Enfrente uma tarefa difícil ou conversa chata que você estava adiando hoje mesmo.",
-        "Filtre tudo o que você assistir e ouvir hoje. Proteja sua mente de conteúdos ruins.",
-        "Não dê nenhuma desculpa ou demonstre preguiça diante das suas obrigações hoje.",
-        "Quando sentir raiva ou irritação hoje, respire fundo por 5 segundos e responda com calma.",
-        "Substitua 20 minutos de rolar o feed do celular por leitura ou reflexão em silêncio.",
-        "Mande uma mensagem de apoio ou encorajamento para um amigo que está na luta diária.",
-        "Escute com atenção as pessoas hoje sem interrompê-las para dar sua opinião.",
-        "Faça uma boa ação por alguém em segredo hoje, sem contar para ninguém.",
-        "Seja 100% honesto em cada palavra dita hoje, mesmo que a verdade seja desconfortável."
-    ];
-
-    function atualizarData() {
+    function configurarData() {
         const opcoes = { weekday: 'long', day: 'numeric', month: 'short' };
-        document.getElementById('current-date').innerText = new Date().toLocaleDateString('pt-BR', opcoes).toUpperCase();
+        document.getElementById('txt-data').innerText = new Date().toLocaleDateString('pt-BR', opcoes).toUpperCase();
     }
 
-    function gerarMensagem() {
-        // Seleção aleatória ultra-rápida sem delay de rede
-        const v = versiculosPT[Math.floor(Math.random() * versiculosPT.length)];
-        const d = desafios[Math.floor(Math.random() * desafios.length)];
-
-        document.getElementById('verse-ref').innerText = v.ref;
-        document.getElementById('verse-text').innerText = `"${v.texto}"`;
-        document.getElementById('challenge-text').innerText = d;
+    function sortearNovaMensagem() {
+        // Escolha aleatória direta da lista acima
+        const itemSorteado = listaDeTextos[Math.floor(Math.random() * listaDeTextos.length)];
+        
+        document.getElementById('txt-referencia').innerText = itemSorteado.livro;
+        document.getElementById('txt-versiculo').innerText = `"${itemSorteado.mensagem}"`;
+        document.getElementById('txt-desafio').innerText = itemSorteado.tarefa;
     }
 
-    // Inicializa o app
-    atualizarData();
-    gerarMensagem();
+    // Inicialização ao ligar o app
+    configurarData();
+    sortearNovaMensagem();
 </script>
 
 </body>
