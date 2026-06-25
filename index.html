@@ -2,8 +2,14 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homem de Deus • Versão Final</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Homem de Deus</title>
+    
+    <!-- Configurações exclusivas para o iPhone reconhecer como App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Homem de Deus">
+    
     <style>
         :root {
             --fundo: #050811;
@@ -19,6 +25,8 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-touch-callout: none; /* Desativa toque longo do iOS */
+            -webkit-user-select: none;   /* Impede selecionar texto no App */
         }
 
         body {
@@ -33,6 +41,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            padding-top: env(safe-area-inset-top); /* Ajuste para o 'Notch/Dynamic Island' do iPhone */
         }
 
         .container-principal {
@@ -142,6 +151,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 8px 24px rgba(0, 245, 212, 0.25);
+            -webkit-tap-highlight-color: transparent; /* Remove flash de toque no iOS */
         }
 
         .botao-mudar:hover {
@@ -155,7 +165,7 @@
 <div class="container-principal">
     <header>
         <h1>Homem de Deus</h1>
-        <p>100% Em Português</p>
+        <p>App Masculino</p>
     </header>
 
     <div class="data-hoje" id="txt-data">CARREGANDO DATA...</div>
@@ -175,58 +185,17 @@
 </div>
 
 <script>
-    // LISTA DE TEXTOS TOTALMENTE TRAVADA EM PORTUGUÊS (NÃO ENTRA LINK EXTERNO)
     const listaDeTextos = [
-        {
-            livro: "1 Timóteo 6:11",
-            mensagem: "Mas você, homem de Deus, fuja de tudo isso e busque a justiça, a piedade, a fé, o amor, a constância e a mansidão.",
-            tarefa: "Identifique uma área ou conversa tóxica hoje e afaste-se dela imediatamente."
-        },
-        {
-            livro: "1 Coríntios 16:13",
-            mensagem: "Estejam alertas, permaneçam firmes na fé, ajam como homens e sejam fortes.",
-            tarefa: "Enfrente uma tarefa difícil ou uma conversa chata que você estava adiando hoje mesmo."
-        },
-        {
-            livro: "Provérbios 4:23",
-            mensagem: "Acima de tudo o que deve ser guardado, guarde o seu coração, pois dele procedem as fontes da vida.",
-            tarefa: "Filtre tudo o que você assistir e ouvir hoje. Proteja sua mente de conteúdos ruins."
-        },
-        {
-            livro: "Josué 1:9",
-            mensagem: "Não fui eu que ordenei? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar.",
-            tarefa: "Não dê nenhuma desculpa ou demonstre preguiça diante das suas obrigações hoje."
-        },
-        {
-            livro: "Provérbios 16:32",
-            mensagem: "Melhor é o homem paciente do que o guerreiro, mais vale controlar o seu próprio espírito do que conquistar uma cidade inteira.",
-            tarefa: "Quando sentir raiva ou irritação hoje, respire fundo por 5 segundos e responda com calma."
-        },
-        {
-            livro: "Salmo 1:1-2",
-            mensagem: "Bem-aventurado o homem que não anda no conselho dos ímpios... Antes, o seu prazer está na lei do Senhor.",
-            tarefa: "Substitua 20 minutos de redes sociais por leitura ou reflexão em silêncio hoje."
-        },
-        {
-            livro: "Provérbios 27:17",
-            mensagem: "Como o ferro afia o ferro, assim o homem afia o seu companheiro.",
-            tarefa: "Mande uma mensagem de apoio ou ligue para um amigo que está enfrentando lutas diárias."
-        },
-        {
-            livro: "Tiago 1:19",
-            mensagem: "Meus amados irmãos, tenham isto em mente: Sejam todos prontos para ouvir, tardio para falar e tardio para se irar.",
-            tarefa: "Escute com atenção as pessoas hoje sem interrompê-las para dar sua opinião rápida."
-        },
-        {
-            livro: "Gálatas 6:7",
-            mensagem: "Não se enganem: de Deus não se zomba. Pois o que o homem semear, isso também colherá.",
-            tarefa: "Faça uma boa ação por alguém em segredo hoje, sem contar para absolutamente ninguém."
-        },
-        {
-            livro: "Efésios 5:25",
-            mensagem: "Maridos, amem suas mulheres, assim como Cristo amou a igreja e entregou-se por ela.",
-            tarefa: "Trate as pessoas da sua casa com honra extra, ajudando em alguma tarefa pesada."
-        }
+        { livro: "1 Timóteo 6:11", mensagem: "Mas você, homem de Deus, fuja de tudo isso e busque a justiça, a piedade, a fé, o amor, a constância e a mansidão.", tarefa: "Identifique uma área ou conversa tóxica hoje e afaste-se dela imediatamente." },
+        { livro: "1 Coríntios 16:13", mensagem: "Estejam alertas, permaneçam firmes na fé, ajam como homens e sejam fortes.", tarefa: "Enfrente uma tarefa difícil ou uma conversa chata que você estava adiando hoje mesmo." },
+        { livro: "Provérbios 4:23", mensagem: "Acima de tudo o que deve ser guardado, guarde o seu coração, pois dele procedem as fontes da vida.", tarefa: "Filtre tudo o que você assistir e ouvir hoje. Proteja sua mente de conteúdos ruins." },
+        { livro: "Josué 1:9", mensagem: "Não fui eu que ordenei? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar.", tarefa: "Não dê nenhuma desculpa ou demonstre preguiça diante das suas obrigações hoje." },
+        { livro: "Provérbios 16:32", mensagem: "Melhor é o homem paciente do que o guerreiro, mais vale controlar o seu próprio espírito do que conquistar uma cidade inteira.", tarefa: "Quando sentir raiva ou irritação hoje, respire fundo por 5 segundos e responda com calma." },
+        { livro: "Salmo 1:1-2", mensagem: "Bem-aventurado o homem que não anda no conselho dos ímpios... Antes, o seu prazer está na lei do Senhor.", tarefa: "Substitua 20 minutos de redes sociais por leitura ou reflexão em silêncio hoje." },
+        { livro: "Provérbios 27:17", mensagem: "Como o ferro afia o ferro, assim o homem afia o seu companheiro.", tarefa: "Mande uma mensagem de apoio ou ligue para um amigo que está enfrentando lutas diárias." },
+        { livro: "Tiago 1:19", mensagem: "Meus amados irmãos, tenham isto em mente: Sejam todos prontos para ouvir, tardio para falar e tardio para se irar.", tarefa: "Escute com atenção as pessoas hoje sem interrompê-las para dar sua opinião rápida." },
+        { livro: "Gálatas 6:7", mensagem: "Não se enganem: de Deus não se zomba. Pois o que o homem semear, isso também colherá.", tarefa: "Faça uma boa ação por alguém em segredo hoje, sem contar para absolutamente ninguém." },
+        { livro: "Efésios 5:25", mensagem: "Maridos, amem suas mulheres, assim como Cristo amou a igreja e entregou-se por ela.", tarefa: "Trate as pessoas da sua casa com honra extra, ajudando em alguma tarefa pesada." }
     ];
 
     function configurarData() {
@@ -235,18 +204,14 @@
     }
 
     function sortearNovaMensagem() {
-        // Escolha aleatória direta da lista acima
         const itemSorteado = listaDeTextos[Math.floor(Math.random() * listaDeTextos.length)];
-        
         document.getElementById('txt-referencia').innerText = itemSorteado.livro;
         document.getElementById('txt-versiculo').innerText = `"${itemSorteado.mensagem}"`;
         document.getElementById('txt-desafio').innerText = itemSorteado.tarefa;
     }
 
-    // Inicialização ao ligar o app
     configurarData();
     sortearNovaMensagem();
 </script>
-
 </body>
 </html>
