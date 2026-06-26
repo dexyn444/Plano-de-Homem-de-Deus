@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Homem de Deus</title>
     
-    <!-- Configurações exclusivas para o iPhone reconhecer como App -->
+    <!-- Configurações exclusivas para o iPhone -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Homem de Deus">
     
-    <!-- ÍCONE OFICIAL DO APLICATIVO PARA A TELA INICIAL DO IPHONE -->
-    <link rel="apple-touch-icon" href="https://i.ibb.co/30Zc0Bq/lion-icon.png">
+    <!-- ÍCONE EM CÓDIGO PURO (Sem links externos, erro zero) -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23050811'><rect width='100' height='100' rx='20'/><path d='M50 25 L65 45 L58 48 L68 70 L50 60 L32 70 L42 48 L35 45 Z' fill='%2300f5d4'/><circle cx='50' cy='48' r='3' fill='%23ffffff'/></svg>">
     
     <style>
         :root {
@@ -60,17 +60,14 @@
             text-align: center;
         }
 
-        /* Foto de perfil ou logo dentro do próprio app */
+        /* Escudo geométrico estilizado feito em CSS/SVG */
         .app-logo {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid var(--neon-ciano);
+            width: 75px;
+            height: 75px;
             margin: 0 auto 15px auto;
-            box-shadow: 0 0 15px var(--neon-glow);
-            background-image: url('https://i.ibb.co/30Zc0Bq/lion-icon.png');
-            background-size: cover;
-            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         header h1 {
@@ -179,8 +176,14 @@
 <body>
 
 <div class="container-principal">
-    <!-- Logotipo redondo adicionado no topo da interface -->
-    <div class="app-logo"></div>
+    <!-- Ícone interno em vetor inteligente (Seguro contra erros) -->
+    <div class="app-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#00f5d4" stroke-width="2" stroke-dasharray="5 3"/>
+            <polygon points="50,15 80,38 70,80 30,80 20,38" fill="rgba(0,245,212,0.1)" stroke="#00f5d4" stroke-width="3"/>
+            <path d="M50 30 L62 48 L56 50 L65 68 L50 60 L35 68 L44 50 L38 48 Z" fill="#00f5d4"/>
+        </svg>
+    </div>
 
     <header>
         <h1>Homem de Deus</h1>
