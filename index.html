@@ -10,6 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Homem de Deus">
     
+    <!-- ÍCONE OFICIAL DO APLICATIVO PARA A TELA INICIAL DO IPHONE -->
+    <link rel="apple-touch-icon" href="https://i.ibb.co/30Zc0Bq/lion-icon.png">
+    
     <style>
         :root {
             --fundo: #050811;
@@ -25,8 +28,8 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-touch-callout: none; /* Desativa toque longo do iOS */
-            -webkit-user-select: none;   /* Impede selecionar texto no App */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
         }
 
         body {
@@ -41,7 +44,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            padding-top: env(safe-area-inset-top); /* Ajuste para o 'Notch/Dynamic Island' do iPhone */
+            padding-top: env(safe-area-inset-top);
         }
 
         .container-principal {
@@ -55,6 +58,19 @@
             padding: 32px 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
             text-align: center;
+        }
+
+        /* Foto de perfil ou logo dentro do próprio app */
+        .app-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-ciano);
+            margin: 0 auto 15px auto;
+            box-shadow: 0 0 15px var(--neon-glow);
+            background-image: url('https://i.ibb.co/30Zc0Bq/lion-icon.png');
+            background-size: cover;
+            background-position: center;
         }
 
         header h1 {
@@ -151,7 +167,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 8px 24px rgba(0, 245, 212, 0.25);
-            -webkit-tap-highlight-color: transparent; /* Remove flash de toque no iOS */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .botao-mudar:hover {
@@ -163,19 +179,22 @@
 <body>
 
 <div class="container-principal">
+    <!-- Logotipo redondo adicionado no topo da interface -->
+    <div class="app-logo"></div>
+
     <header>
         <h1>Homem de Deus</h1>
-        <p>App Masculino</p>
+        <p>100% Em Português</p>
     </header>
 
     <div class="data-hoje" id="txt-data">CARREGANDO DATA...</div>
 
     <div class="caixa-conteudo">
-        <div class="subtitulo-etiqueta">📖 LEITURA BÍBLICA</div>
+        <div class="subtitulo-etiqueta"><b>📖 LEITURA BÍBLICA</b></div>
         <div class="titulo-versiculo" id="txt-referencia">Carregando...</div>
         <div class="texto-da-palavra" id="txt-versiculo">Carregando...</div>
 
-        <div class="subtitulo-etiqueta">⚡ DESAFIO PRÁTICO</div>
+        <div class="subtitulo-etiqueta"><b>⚡ DESAFIO PRÁTICO</b></div>
         <div class="caixa-desafio" id="txt-desafio">Carregando...</div>
     </div>
 
